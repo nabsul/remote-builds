@@ -18,7 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - run: docker buildx create --name remote_builder --node amd64arch --platform linux/arm64,linux/arm/v7,linux/arm/v6 ssh://azureuser@52.233.88.17 --driver-opt env.BUILDKIT_STEP_LOG_MAX_SIZE=10000000 --driver-opt env.BUILDKIT_STEP_LOG_MAX_SPEED=10000000
+      - run: docker buildx create --name remote_builder --node amd64arch --platform linux/amd64 ssh://azureuser@52.233.88.17 --driver-opt env.BUILDKIT_STEP_LOG_MAX_SIZE=10000000 --driver-opt env.BUILDKIT_STEP_LOG_MAX_SPEED=10000000
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
